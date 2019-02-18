@@ -2,13 +2,8 @@ package com.attrecto.kotlinkurzus.lesson2
 
 class User(name: String) : Person() {
 
-
-
-    override fun print() {
-        takeStep()
-    }
-
     var name: String? = null
+
     var email: String = ""
         get() {
             println("email requested")
@@ -18,6 +13,7 @@ class User(name: String) : Person() {
             println("email set")
             field = s1
         }
+
     var address: Address = Address("", "", Type.STREET)
 
     init {
@@ -26,6 +22,10 @@ class User(name: String) : Person() {
 
     constructor(name: String, email: String) : this(name) {
         this.email = email
+    }
+
+    override fun print() {
+        takeStep()
     }
 
     fun combineEmailAndName() = "$email $name"
@@ -55,6 +55,8 @@ abstract class Person() : Worker, Worker2 {
     override var time = 1
 
     override fun work() {
+        super<Worker2>.work()   //A super hívást nem tudja eldönteni mivel mind2nél van default implementation,
+                                // meg kell adni <> között hogy melyiket szeretnénk
     }
 
 
