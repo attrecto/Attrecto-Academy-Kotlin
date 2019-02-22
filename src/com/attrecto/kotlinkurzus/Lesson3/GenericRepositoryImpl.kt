@@ -1,9 +1,9 @@
 package com.attrecto.kotlinkurzus.Lesson3
 
 open class GenericRepositoryImpl<T> : GenericRepository<T> {
-
+    val storedItems = mutableListOf<T>()
     override fun store(obj: T) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        storedItems.add(obj)
     }
 
     override fun getById(id: Int): T {
@@ -11,7 +11,7 @@ open class GenericRepositoryImpl<T> : GenericRepository<T> {
     }
 
     override fun getAll(): List<T> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return storedItems
     }
 }
 

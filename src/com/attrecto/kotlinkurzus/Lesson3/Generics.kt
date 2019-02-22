@@ -52,5 +52,10 @@ class EmployeeRepositoryImpl : EmployeeRepository {
 fun main() {
     val customer = Customer(3)
     println("Id: ${customer.id} - Name: ${customer.name} - Email: ${customer.email}")
-    val cutomerRepo = GenericRepositoryImpl<Customer>()
+    val customerRepo = GenericRepositoryImpl<Customer>()
+    val employeeRepo = GenericRepositoryImpl<Employee>()
+    customerRepo.store(Customer(5))
+    employeeRepo.store(Employee())
+
+
 }
