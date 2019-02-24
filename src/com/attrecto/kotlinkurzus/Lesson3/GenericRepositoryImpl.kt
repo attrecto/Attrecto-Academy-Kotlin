@@ -1,13 +1,9 @@
 package com.attrecto.kotlinkurzus.Lesson3
 
-open class GenericRepositoryImpl<T> : GenericRepository<T> {
+abstract class GenericRepositoryImpl<T> : GenericRepository<T> {
     val storedItems = mutableListOf<T>()
     override fun store(obj: T) {
         storedItems.add(obj)
-    }
-
-    override fun getById(id: Int): T {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun getAll(): List<T> {
@@ -15,6 +11,14 @@ open class GenericRepositoryImpl<T> : GenericRepository<T> {
     }
 }
 
+class CustomerRepositoryImpl: GenericRepositoryImpl<Customer?>() {
+    override fun getById(id: Int): Customer? {
+       return storedItems.filter { it?.id == id }.firstOrNull()
+    }
+
+}
+
+/*
 class CustomerRepositoryImpl: GenericRepository<Customer?> {
     val customerStore = mutableListOf<Customer>()
     override fun store(obj: Customer?) {
@@ -33,4 +37,4 @@ class CustomerRepositoryImpl: GenericRepository<Customer?> {
         return customerStore
     }
 
-}
+}*/
