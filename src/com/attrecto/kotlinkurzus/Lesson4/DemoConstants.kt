@@ -17,4 +17,6 @@ fun main() {
     Copyright.AUTHOR
     COPYRIGHT_AUTHOR
     DemoClass.DEMO_CONSTANT
+    DemoConstantsJava.AUTHOR
+
 }
