@@ -40,5 +40,9 @@ fun main() {
         //interaction here
     }
 
+    //Anonymous function
+    unaryOperation(3, fun(x: Int): Int { return x*x})
+
+
 
 }
